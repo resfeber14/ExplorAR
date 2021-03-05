@@ -1,0 +1,36 @@
+.navbar-brand{
+    font-size: 2rem;
+}
+.nav-item{
+    letter-spacing:5px;
+    font-size:1.2rem;
+    line-height:2;
+    padding:5px;
+}
+#home{
+    background: #060e1b;
+}
+#home h1,h2,h3{
+
+    padding-top: 3%;
+    padding-bottom:0;
+    color:#fff;
+    text-align:center;
+}
+#canvas {
+    
+    opacity: 0.5;
+}
+.btn{
+    margin-top:3%;
+    margin-bottom: 3% ;
+    
+}
+.footerr{
+    text-align:center;
+    padding-bottom: 3%;
+    padding-top: 3%;
+    background-color:#292b2c;
+    color:#0275d8;
+
+}
