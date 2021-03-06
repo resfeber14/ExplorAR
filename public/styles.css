@@ -32,6 +32,7 @@
     padding-top: 3%;
     background-color:#292b2c;
     color:#0275d8;
+    margin-top:10%;
 
 }
 img{
@@ -49,6 +50,10 @@ img{
 h1{
     padding-top: 3%;
     text-align:center;
+    color: #fff;
+}
+.heading{
+    font-size:5rem;
 }
 p{
     line-height:2;
@@ -59,6 +64,9 @@ p{
     width:70%;
     margin:auto;
 }
+.btndwn{
+    margin-top:8%;
+}
 .second{
     background: #060e1b;
     color: #fff;
@@ -66,5 +74,5 @@ p{
 .twitter-timeline{
     margin-top: 30%;
     margin-left: 30%;
-    margin-bottom: 30%;
+    margin-bottom: 80%;
 }
