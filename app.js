@@ -15,7 +15,7 @@ app.post("/",function(err,res){
     
 })
 app.get("/index1",function(req,res){
-    res.render("index1");
+    res.render("index1"); 
 })
 const posts=[];
 app.post("/index1",function(err,res){
@@ -33,7 +33,7 @@ app.post("/index1",function(err,res){
         }
     });
 });
-app.get("/quiz",function(req, res){
+app.post("/quiz",function(req, res){
     res.render("quiz");
 })
 app.post("/search",function(req,res,err){

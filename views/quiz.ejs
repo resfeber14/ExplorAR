@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Quiz Website</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesquiz.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-primary bg-dark">
+        <a class="navbar-brand py-2" href="#"><span class="mb-0 h1">ExplorAR</a>
+    </nav>
+    <div class="main-div">
+        <div class="inner-div">
+            <h2 class="question">Question comes here!</h2>
+            <ul>
+                <li>
+                    <input type="radio" name="answer" id="ans1" class="answer">
+                    <label for="ans1" id="option1" >Answer Option</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="ans2" class="answer">
+                    <label for="ans2" id="option2" >Answer Option</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="ans3" class="answer">
+                    <label for="ans3" id="option3" >Answer Option</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="ans4" class="answer">
+                    <label for="ans4" id="option4" >Answer Option</label>
+                </li>
+            </ul>
+            <button class="btn btn-primary" id="submit" type="submit">Submit</button>
+            <div id="showScore" class="scoreArea">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        const quizDB=[
+            {
+                question:"Q1: How old is the solar system",
+                a: "5000years",
+                b: "5 million years",
+                c: "5 billion years",
+                d: "500 billion years",
+                ans: "ans3"
+            },
+            {
+                question:"Q2: How long does it take for light from the Sun to reach Earth?",
+                a: "1 minute",
+                b: "8 minutes",
+                c: "Instantly",
+                d: "24 hours",
+                ans: "ans2"
+            },
+            {
+                question:"Q3: Studying X-ray emissions from stars help scientists learn about?",
+                a: "the mass",
+                b: "the age",
+                c: "the rotation period",
+                d: "All of the above  ",
+                ans: "ans4"
+            },
+            {
+                question:"Q4: We see flashes from the neutron star when...",
+                a: "there is a lunar eclipse",
+                b: "spacecraft that get too close to it explode",
+                c: "one of the magnetic poles is pointed towards the Earth  ",
+                d: "All of the above",
+                ans: "ans3"
+            },
+            {
+                question:"Q5: What's the brightest star in the night sky?",
+                a: "Sirius (in Canis Major)",
+                b: "Rigel (Orion's knee)",
+                c: "Betelgeuse (Orion's shoulder)",
+                d: "Polaris (The North Star)",
+                ans: "ans1"
+            },
+            {
+                question:"Q6: Which planet has the fewest moons?",
+                a: "Saturn",
+                b: "Venus",
+                c: "Mars",
+                d: "Jupiter",
+                ans: "ans2"
+            },
+            {
+                question:"Q7: What causes the seasons?",
+                a: "Earth gets closer to the sun in summer than winter",
+                b: "The sun gets closer to the Earth in the summer",
+                c: "The tilt of Earth's axis",
+                d: "Earth is closer to the hot side of the sun in summer, and the cool side in winter",
+                ans: "ans3"
+            },
+            {
+                question:"Q8: Which planet is called 'the evening star' or 'the morning star'?",
+                a: "Mercury",
+                b: "Venus",
+                c: "Mars",
+                d: "Jupiter",
+                ans: "ans2"
+            },
+            {
+                question:"Q9: What are comets made of?",
+                a: "Carbon dioxide (Dry ice)",
+                b: "Water ice",
+                c: "Dust and dirt",
+                d: "All of the above and more",
+                ans: "ans4"
+            },
+            {
+                question:"Q10: Which space shuttle entered orbit first?",
+                a: "Discovery",
+                b: "Enterprise",
+                c: "Challenger",
+                d: "Columbia",
+                ans: "ans4"
+            }
+        ];
+        const question=document.querySelector('.question');
+        const option1=document.querySelector('#option1');
+        const option2=document.querySelector('#option2');
+        const option3=document.querySelector('#option3');
+        const option4=document.querySelector('#option4');
+        const submit=document.getElementById('submit');
+        const answers=document.querySelectorAll('.answer');
+        const showScore=document.getElementById('showScore');
+        let questioncount=0;
+        let score=0;
+        function loadQuestion(){
+            const questionlist=quizDB[questioncount];
+            question.innerText=questionlist.question;
+            option1.innerText=questionlist.a;
+            option2.innerText=questionlist.b;
+            option3.innerText=questionlist.c;
+            option4.innerText=questionlist.d;
+
+        }
+        loadQuestion();
+        function getCheckedanswer(){
+            let answer;
+            answers.forEach(function(curr){
+                if(curr.checked){
+                    answer=curr.id;
+                }
+            })
+            return answer;
+        }
+        function deselectAll(){
+            answers.forEach(function(curr){
+                curr.checked=false;
+            })
+        }
+        submit.addEventListener("click", function(){
+            const checkedAnswer=getCheckedanswer();
+            if(checkedAnswer===quizDB[questioncount].ans){
+                score++;
+            }
+            questioncount++;
+            deselectAll();
+            if(questioncount < quizDB.length){
+                loadQuestion();
+            }
+            else{
+                showScore.innerHTML='<h3> You scored ' + score+ '/' +quizDB.length+' </h3> <button class="btn btn-primary" onclick="location.reload()"> Go Back!</button>';
+                showScore.classList.remove("scoreArea");
+               
+            }
+        });
+
+    </script>
+</body>
+</html>
