@@ -52,6 +52,12 @@ h1{
 }
 p{
     line-height:2;
+    padding-bottom: 2%;
+    color:#fff;
+    
+    text-align:center;
+    width:70%;
+    margin:auto;
 }
 .second{
     background: #060e1b;

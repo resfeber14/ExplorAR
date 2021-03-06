@@ -6,13 +6,17 @@ h1{
 }
 h1,p{
     padding-bottom: 2%;
-    text-align:center;
+    
     color:#fff;
+    
+    text-align:center;
+    width:70%;
+    margin:auto;
 }
+
 img{
     align-items: center;
     width:50%;
-    height:50%;
     padding:2%;
 }
 .center{
@@ -28,4 +32,16 @@ img{
     background-color:#292b2c;
     color:#0275d8;
 
+}
+.divv{
+    width:fit-content;
+    height:fit-content;
+    background-color:#ff005c;
+    display:grid;
+    place-items: center;
+    margin:auto;
+    border-radius:1rem;
+    box-shadow: 0 1rem  1rem  rgba(0,0,0,alpha);
+    margin-bottom: 3%;
+    margin-top: 3%;
 }
