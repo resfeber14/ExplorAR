@@ -26,13 +26,15 @@
     margin-bottom: 3% ;
     
 }
+body {
+    background-image: url("269150.jpg");
+  }
 .footerr{
     text-align:center;
     padding-bottom: 3%;
     padding-top: 3%;
     background-color:#292b2c;
     color:#0275d8;
-    margin-top:10%;
 
 }
 img{
