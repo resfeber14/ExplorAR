@@ -39,6 +39,9 @@
             </div>
         </div>
     </div>
+    <form action="/" method="post">
+        <button class="btn btn-primary">Go Back!</button>
+    </form>
     <script>
         const quizDB=[
             {
@@ -167,9 +170,9 @@
                 loadQuestion();
             }
             else{
-                showScore.innerHTML='<h3> You scored ' + score+ '/' +quizDB.length+' </h3> <button class="btn btn-primary" onclick="location.reload()"> Go Back!</button>';
+                showScore.innerHTML='<h3> You scored ' + score+ '/' +quizDB.length+' </h3> <button class="btn btn-primary" onclick="location.reload()"> Take Quiz Again!</button>';
                 showScore.classList.remove("scoreArea");
-               
+                
             }
         });
 
