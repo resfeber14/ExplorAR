@@ -11,7 +11,20 @@ app.get("/", function(req, res){
     res.render("index");
 });
 app.post("/",function(err,res){
-   res.render("index1");
+   //res.render("index1");
+   request("http://hubblesite.org/api/v3/news_release/last",function(error,request,body){
+       let datta=JSON.parse(body);
+       if(error){
+        console.log(error);
+    }
+    else{
+        res.render("index1",{
+            name:datta.name,
+            abstract:datta.abstract
+        });
+    }
+
+   })
     
 })
 app.get("/index1",function(req,res){
@@ -37,8 +50,11 @@ app.post("/quiz",function(req, res){
     res.render("quiz");
 })
 app.post("/search",function(req,res,err){
-    //console.log(req.body.btnn,req.body.topic);
-    const url="https://images-api.nasa.gov/search?q="+req.body.topic;
+    
+    let d = new Date();
+    let date = d.getFullYear();
+
+    const url="https://images-api.nasa.gov/search?q="+req.body.topic+"&page=1&media_type=image,video&year_start=1920&year_end="+date;
     request(url,function(error,response,body){
         
             var data=JSON.parse(body);
@@ -57,35 +73,76 @@ app.post("/search",function(req,res,err){
             var des3=data.collection.items[2].data[0].description;
             var des4=data.collection.items[3].data[0].description;
             var des5=data.collection.items[4].data[0].description;
-           
+            var p=data.collection.items[0].href;
+            request(p, function(error,response,body){
+                let pp=JSON.parse(body);
+                var ind;
+                for(var i=0;i<pp.length;i++){
+                    var l=pp[i].length;
+                    var x=pp[i][l-3];
+                    var y=pp[i][l-2];
+                    var z=pp[i][l-1];
+                    //console.log(x,y,z);
+                    if(x==="m" && y=== "p" && z==="4" ){
+                        ind=i;
+                        
+                        break;
+                    }
+                }
+                const m=pp[ind];
+                res.render("info",{
+                    title1:title1,
+                    title2:title2,
+                    title3:title3,
+                    title4:title4,
+                    title5:title5,
+                    img1: img1,
+                    img2: img2,
+                    img3:img3,
+                    img4:img4,
+                    img5:img5,
+                    des1: des1,
+                    des2: des2,
+                    des3: des3,
+                    des4:des4,
+                    des5:des5,
+                    m:m
+                });
+
+                //console.log(m);
+            })
+            //console.log(m);
         //console.log(title1,title2);
-        res.render("info",{
-            title1:title1,
-            title2:title2,
-            title3:title3,
-            title4:title4,
-            title5:title5,
-            img1: img1,
-            img2: img2,
-            img3:img3,
-            img4:img4,
-            img5:img5,
-            des1: des1,
-            des2: des2,
-            des3: des3,
-            des4:des4,
-            des5:des5
-        });
+        
     })
     //console.log(posts);
     //res.render("info",{posts:posts});
 })
 
-app.post("/notfound",function(req,res){
-    res.redirect("/index1");
+app.get("/link1",function(req,res){
+    res.render("link1");
 })
-app.post("/btnn",function(req, res){
+app.get("/link2",function(req,res){
+    res.render("link2");
+})
+app.get("/link3",function(req,res){
+    res.render("link3");
+})
+app.get("/link4",function(req,res){
+    res.render("link4");
+})
+app.get("/link5",function(req,res){
+    res.render("link5");
+})
+app.get("/link6",function(req,res){
+    res.render("link6");
+})
+app.get("/link7",function(req,res){
+    res.render("link7");
+})
 
+app.post("/iss",function(req, res){
+    res.render("iss");
 })
 app.listen(3000,function(){
     console.log("Server started at port 3000");

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExplorAR</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+    <script src="https://kit.fontawesome.com/6a88e369f2.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+   <style>
+       body{
+          background-color: black;
+           color:crimson;
+       }
+       p{
+           text-align: center;
+           padding-bottom: 1%;
+           color:#fbfd8a;
+       }
+       #issMap{
+           height: 300px;
+           margin-bottom: 10%;
+           width:500px;
+           margin: auto;
+           margin-bottom: 5%;
+       }
+       h1,h3{
+           padding-top:3%;
+           text-align: center;
+           padding-bottom: 3%;
+           letter-spacing: 5px;
+       }
+       .footerr{
+    text-align:center;
+    padding-bottom: 3%;
+    padding-top: 3%;
+    background-color:#292b2c;
+    color:#0275d8;
+
+}
+   </style>
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-primary bg-dark">
+        <a class="navbar-brand py-2" href="#"><span class="mb-0 h1">ExplorAR</a>
+    </nav>
+    <h1>Where is the International Space Station?</h1>
+    <h3>
+        Latitude:  <span id="lat"></span>°<br><br><br>
+        Longitude:  <span id="long"></span>°<br><br>
+    </h3>
+    <p>The location pin shows over which place the ISS is right now.</p>
+    <div id="issMap"></div>
+    
+
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>    
+            <script>
+                const mymap = L.map('issMap').setView([0, 0], 1);
+                const marker = L.marker([0,0]).addTo(mymap);
+               const attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+               const tileURL="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+               const tiles=L.tileLayer(tileURL,{attribution});
+               tiles.addTo(mymap);
+
+                const api_url = "https://api.wheretheiss.at/v1/satellites/25544";
+                let flag=true;
+                async function getISS(){
+                    const response=await fetch(api_url);
+                    const data=await response.json();
+                    const{latitude,longitude}=data;
+                   marker.setLatLng([latitude,longitude]);
+                   if(flag){
+                    mymap.setView([latitude,longitude],1);
+                    flag=false;
+                   }
+                  
+                    document.getElementById("lat").textContent=latitude.toFixed(2);
+                    document.getElementById("long").textContent=longitude.toFixed(2);
+                }
+                getISS();
+                setInterval(getISS,1000);
+            </script>
+            
+            <footer class="footerr">
+              2021 Copyright ThinkAR
+            </footer>
+            </body>
+            </html>
+            

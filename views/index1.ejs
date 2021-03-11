@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ExplorAR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -19,7 +22,7 @@
         <a class="navbar-brand py-2" href="#"><span class="mb-0 h1">ExplorAR</a>
      
 
-<div class="ml-auto">
+<div class="ml-auto" >
 <form class="form-inline my-2 my-lg-0" method="post" action="/search">
     <input class="form-control mr-sm-2" type="search"  name="topic" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="btnn" >Search</button>
@@ -28,13 +31,10 @@
   </nav>
   <h1 class="heading">Welcome to ExplorAR</h1>
   <h1>Get ready to explore with us!</h1>
-  <div class="text-center">
-    <button class="btn btn-success btn-lg ml-5">Download <i class="fab fa-google-play"></i></button>
-    <button class="btn btn-success btn-lg ml-5"> Download <i class="fab fa-apple"></i></button>
-    
-  </div>
   
-<h1 class="text-center">
+  
+  
+<div class="text-center">
     <form action="/index1" method="post">
         <button class="btn btn-outline-primary btn-lg" type="submit" >Highlight of the Day!<i class="fas fa-rocket"></i></button>
     </form>
@@ -42,12 +42,88 @@
       <button class="btn btn-outline-primary btn-lg" type="submit" >Take Quiz! <i class="fas fa-pencil-alt"></i></button>
     </form>
     
-</h1>
-<a class="twitter-timeline" data-lang="en" data-width="650" data-height="600" data-theme="dark" href="https://twitter.com/thesaltysleuth/lists/latest-tweets-17336?ref_src=twsrc%5Etfw">A Twitter List by thesaltysleuth</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>    
-</body>
+  </div>
+  <h1>TOP NEWS</h1>
+<br><br>
+<div class="news" data-aos="fade-left">
+  <div class="transbox ">
+    <h2><%= name %></h2>
+<div class="container">
+  <p> <%= abstract %></p>
+</div>
 
+  </div>
+  </div>
+
+  <div class="app">
+    <img src="augmented-reality-technology-ar-dinosaur-three-dimensional-space-realidad-aumentada-08149aaf6053998f924c81ba56400a1f.png" align="left">
+    <h1 class="floa">VISUALIZE THE UNIVERSE!</h1>
+    <h1 class="flo">DOWNLOAD OUR APP NOW!</h1>
+    
+</div>
+<div class="text-center">
+  <button class="btn btn-success btn-lg ml-5"> <i class="fab fa-google-play"></i>  Download </button>
+  <button class="btn btn-success btn-lg ml-5"> <i class="fab fa-apple"></i>  Download </button>
+</div>
+
+<br><br><br><br><br><br>
+<h1 class="bigg">BIG QUESTIONS</h1>
+
+<table style="width: 650px; margin: auto; border-spacing: 20px;" data-aos="zoom-out" >
+
+<tbody>
+  
+<tr align="center" valign="top">
+  <td>
+    
+  <div class="crop">
+    <a href="/link1"><img class = "imgg" src="questions1.jpg" alt="How did our Universe begin and how will it end?" style="height: 200px; border-radius: 10%;"></div><br>How did our Universe begin and how will it end?</a><br>
+  </td><td>
+  <div class="crop"><a href="/link2"><img class = "imgg" src="questions2.jpg" alt="What is dark matter?" style="height: 200px;  border-radius: 10%;"></div><br>What is dark matter?<br></a>
+  </td><td>
+  <div class="crop"><a href="/link3"><img class = "imgg" src="questions3.jpg" alt="How did the known structures in the Universe evolve?" style="height: 200px; border-radius: 10%;"></div><br>How did the known structures in the Universe evolve?</a><br>
+  </td>
+
+</tr>
+
+
+
+  <tr align="center" valign="top">
+  <td>
+  <div class="crop"><a href="/link4"><img class = "imgg" src="questions4.png" alt="How do massive black holes grow?" style="height: 200px;  border-radius: 10%;"></div><br>How do massive black holes grow?</a><br>
+  </td><td>
+  <div class="crop"><a href="/link5"><img class = "imgg" src="questions5.jpg" alt="What is dark energy and why is the Universe expanding ever faster?" style="height: 200px; border-radius: 10%;"></div><br>What is dark energy and why is the Universe expanding ever faster?</a><br>
+  </td><td>
+  <div class="crop"><a href="/link6"><img class = "imgg" src="questions6.gif" alt="What is the Structure and Behavior of Matter Under Extreme Conditions?" style="height: 200px;  border-radius: 10%;"></div><br>What is the Structure and Behavior of Matter Under Extreme Conditions?</a><br>
+  </td></tr>
+
+  <tr align="center" valign="top">
+    <td>
+      <div class="crop"><a href="#"></div><br></a><br>
+      </td>
+  <td>
+  <div class="crop"><a href="link7"><img class = "imgg" src="questions11.jpg" alt="How do we measure the size and the age of the Universe?" style="height: 200px;  border-radius: 10%;"></div><br>How do we measure the size and the age of the Universe?</a><br>
+  </td></tr>
+
+  </tbody>
+  </table> 
+  <div class="text-center"  data-aos="fade-left">
+<form action="/iss" method="post">
+  <button class="btn btn-outline-primary btn-lg  " type="submit" > Track ISS <i class="fas fa-space-shuttle"></i></button>
+</form>
+</div>
+<div class="tweet"  data-aos="zoom-out" >
+<a class="twitter-timeline" data-lang="en"  data-width="650" data-height="600"  data-theme="dark" href="https://twitter.com/thesaltysleuth/lists/latest-tweets-17336?ref_src=twsrc%5Etfw"> Recent Space News</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>    
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      offset:300,
+      duration:1000
+    });
+  </script>
 
 <footer class="footerr">
   2021 Copyright ThinkAR

@@ -1,5 +1,8 @@
 body{
-    background-image:url("1219743.jpg");
+    background-image:url("wp6547134.jpg");
+    
+        overflow-x: hidden;
+    
 }
 h1{
     padding-top: 3%;
@@ -44,4 +47,12 @@ img{
     box-shadow: 0 1rem  1rem  rgba(0,0,0,alpha);
     margin-bottom: 3%;
     margin-top: 3%;
+    border-radius: 15px;
+}
+.vid{
+    width:50vw;
+    height:50vh;
+    margin-left: 25%;
+    margin-bottom: 5%;
+    
 }
