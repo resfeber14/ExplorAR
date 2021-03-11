@@ -58,15 +58,18 @@ h2{
 }
 body {
     background-image: url("269150.jpg");
-  }
+}
 .footerr{
-    text-align:center;
-    padding-bottom: 3%;
-    padding-top: 3%;
     background-color:#292b2c;
     color:#0275d8;
-
+    text-align: center;
+    
+    padding-top: 1%;
+    
+    font-size:1rem;
+    padding-bottom: 2%;
 }
+
 img{
     align-items: center;
     width:50%;
