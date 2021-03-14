@@ -23,7 +23,7 @@
      
 
 <div class="ml-auto" >
-<form class="form-inline my-2 my-lg-0" method="post" action="/search">
+<form class="form-inline my-2 my-lg-0" method="post" action="/search" autocomplete="off" >
     <input class="form-control mr-sm-2" type="search"  name="topic" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="btnn" >Search</button>
   </form>
@@ -45,7 +45,7 @@
   </div>
   <h1>TOP NEWS</h1>
 <br><br>
-<div class="news" data-aos="fade-left">
+<div class="news" data-aos="fade-up">
   <div class="transbox ">
     <h2><%= name %></h2>
 <div class="container">
@@ -55,16 +55,17 @@
   </div>
   </div>
 
-  <div class="app">
+  <div class="app" data-aos="zoom-out" >
     <img src="augmented-reality-technology-ar-dinosaur-three-dimensional-space-realidad-aumentada-08149aaf6053998f924c81ba56400a1f.png" align="left">
     <h1 class="floa">VISUALIZE THE UNIVERSE!</h1>
     <h1 class="flo">DOWNLOAD OUR APP NOW!</h1>
-    
+    <div class="text-center">
+      <a href="https://drive.google.com/file/d/1voCg1MK7w6FQ1p66wM4xeCnxIvOVEFuN/view?usp=sharing" class="btn btn-success btn-lg ml-5" role="button"><i class="fab fa-google-play"></i> Download</a>
+      <a href="https://drive.google.com/file/d/1voCg1MK7w6FQ1p66wM4xeCnxIvOVEFuN/view?usp=sharing" class="btn btn-success btn-lg ml-5" role="button"><i class="fab fa-apple"></i> Download</a>
+      
+    </div>
 </div>
-<div class="text-center">
-  <button class="btn btn-success btn-lg ml-5 "> <i class="fab fa-google-play"></i>  Download </button>
-  <button class="btn btn-success btn-lg ml-5 "> <i class="fab fa-apple"></i>  Download </button>
-</div>
+
 
 <br><br><br><br><br><br>
 <h1 class="bigg">BIG QUESTIONS</h1>
@@ -107,12 +108,12 @@
 
   </tbody>
   </table> 
-  <div class="text-center"  data-aos="fade-left">
+  <div class="text-center"  data-aos="fade-up">
 <form action="/iss" method="post">
   <button class="btn btn-outline-primary btn-lg  " type="submit" > Track ISS <i class="fas fa-space-shuttle"></i></button>
 </form>
 </div>
-<div class="tweet"  data-aos="zoom-out" >
+<div class="tweet"  data-aos="fade-up" >
 <a class="twitter-timeline" data-lang="en"  data-width="650" data-height="600"  data-theme="dark" href="https://twitter.com/thesaltysleuth/lists/latest-tweets-17336?ref_src=twsrc%5Etfw"> Recent Space News</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
