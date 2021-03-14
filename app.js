@@ -144,6 +144,6 @@ app.get("/link7",function(req,res){
 app.post("/iss",function(req, res){
     res.render("iss");
 })
-app.listen(3000,function(){
+app.listen(process.env.PORT || 3000,function(){
     console.log("Server started at port 3000");
 })
