@@ -6,10 +6,12 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
+require("dotenv").config()
 
 app.get("/", function(req, res){
     res.render("index");
 });
+//console.log(process.env)
 app.post("/",function(err,res){
    //res.render("index1");
    request("http://hubblesite.org/api/v3/news_release/last",function(error,request,body){
@@ -32,7 +34,9 @@ app.get("/index1",function(req,res){
 })
 const posts=[];
 app.post("/index1",function(err,res){
-    request("https://api.nasa.gov/planetary/apod?api_key=nh5GD3P3PtipnDlz9aFHGJfuk0LDfrQKlOrdCesj",function(error,response,body){
+    const k=process.env.API_KEY
+    const url="https://api.nasa.gov/planetary/apod?api_key="+k
+    request(url,function(error,response,body){
         let data=JSON.parse(body);
         if(error){
             console.log(error);
@@ -58,21 +62,6 @@ app.post("/search",function(req,res,err){
     request(url,function(error,response,body){
         
             var data=JSON.parse(body);
-            var title1=data.collection.items[0].data[0].title;
-            var title2=data.collection.items[1].data[0].title;
-            var title3=data.collection.items[2].data[0].title;
-            var title4=data.collection.items[3].data[0].title;
-            var title5=data.collection.items[4].data[0].title;
-            var img1=data.collection.items[0].links[0].href;
-            var img2=data.collection.items[1].links[0].href;
-            var img3=data.collection.items[2].links[0].href;
-            var img4=data.collection.items[3].links[0].href;
-            var img5=data.collection.items[4].links[0].href;
-            var des1=data.collection.items[0].data[0].description;
-            var des2=data.collection.items[1].data[0].description;
-            var des3=data.collection.items[2].data[0].description;
-            var des4=data.collection.items[3].data[0].description;
-            var des5=data.collection.items[4].data[0].description;
             var p=data.collection.items[0].href;
             request(p, function(error,response,body){
                 let pp=JSON.parse(body);
@@ -91,22 +80,9 @@ app.post("/search",function(req,res,err){
                 }
                 const m=pp[ind];
                 res.render("info",{
-                    title1:title1,
-                    title2:title2,
-                    title3:title3,
-                    title4:title4,
-                    title5:title5,
-                    img1: img1,
-                    img2: img2,
-                    img3:img3,
-                    img4:img4,
-                    img5:img5,
-                    des1: des1,
-                    des2: des2,
-                    des3: des3,
-                    des4:des4,
-                    des5:des5,
+                    x:data.collection,
                     m:m
+                   
                 });
 
                 //console.log(m);

@@ -4,23 +4,28 @@ body{
         
     
 }
-h1{
-    padding-top: 3%;
-}
+
 h1,p{
     padding-bottom: 2%;
-    
     color:#fff;
-    
     text-align:center;
-    width:70%;
     margin:auto;
+}
+p{
+    width:80%;
+}
+h1{
+    padding-top: 3%;
+    color:#72147e
 }
 
 img{
     align-items: center;
-    width:50%;
+    width:500px;
+    height:500px;
+    object-fit:cover;
     padding:2%;
+    
 }
 .center{
     display: block;
@@ -39,14 +44,15 @@ img{
     padding-bottom: 2%;
 }
 .divv{
-    width:fit-content;
-    height:fit-content;
+    width:70%;
+    height:70%;
     background-color:#fb743e;
     display:grid;
     place-items: center;
     margin:auto;
     border-radius:1rem;
-    box-shadow: 0 1rem  1rem  rgba(0,0,0,alpha);
+    -webkit-box-shadow: -2px 3px 5px 4px rgba(0,0,0,0.32); 
+box-shadow: -2px 3px 5px 4px rgba(0,0,0,0.32);
     margin-bottom: 3%;
     margin-top: 3%;
     border-radius: 15px;

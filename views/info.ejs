@@ -32,52 +32,24 @@
     <nav class="navbar navbar-expand-lg navbar-primary bg-dark">
         <a class="navbar-brand py-2" href="#"><span class="mb-0 h1">ExplorAR</a>
     </nav>
-    <div class="divv" data-aos="fade-up">
-    <h1><%= title1 %></h1>
-    <img src="<%=img1%>" class="center" >
-    <div class="container">
-    <p><%=des1 %></p>
-</div>
-</div>
-<hr>
-<div class="divv" data-aos="fade-up">
-    <h1><%= title2 %></h1>
-    <img src="<%=img2%>" class="center">
-    <div class="container">
-    <p><%=des2 %></p>
-</div>
-</div>
-<hr>
-<div class="abc" data-aos="zoom-out">
-    <video class="vid" controls>
-        <source src="<%= m %>" type="video/mp4">
-        
-      Your browser does not support the video tag.
-      </video> 
-    </div>
-<div class="divv" data-aos="fade-up">
-    <h1><%= title3 %></h1>
-    <img src="<%=img3%>"class="center" >
-    <div class="container">
-    <p><%=des3 %></p>
-</div>
-</div>
-<hr>
-<div class="divv" data-aos="fade-up">
-    <h1><%= title4 %></h1>
-    <img src="<%=img4%>"class="center" >
-    <div class="container">
-    <p><%=des4 %></p>
-</div>
-</div>
-<hr>
-<div class="divv" data-aos="fade-up">
-    <h1><%= title5 %></h1>
-    <img src="<%=img5%>"class="center" >
-    <div class="container">
-    <p><%=des5 %></p>
-</div>
-</div>
+    <div class="abc" data-aos="zoom-out">
+        <video class="vid" controls>
+            <source src="<%= m %>" type="video/mp4">
+            
+          Your browser does not support the video tag.
+          </video> 
+        </div>
+    <% for(let i=0;i<x.items.length;i++){ %>
+        <div class="divv" data-aos="fade-up">
+            <h1><%= x.items[i].data[0].title %></h1>
+            <img src="<%= x.items[i].links[0].href %>"class="center" >
+            <div class="container">
+                <p><%=x.items[i].data[0].description %></p>
+            </div>
+        </div>
+    <% } %>
+        <hr>
+    }
 
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
