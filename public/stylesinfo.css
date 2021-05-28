@@ -58,6 +58,7 @@ box-shadow: -2px 3px 5px 4px rgba(0,0,0,0.32);
     border-radius: 15px;
 }
 .vid{
+    margin-top:2%;
     width:50vw;
     height:50vh;
     margin-left: 25%;
